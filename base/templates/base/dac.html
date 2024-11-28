@@ -1,0 +1,98 @@
+{%extends 'main.html'%} {%load static%} {%block content%}
+
+<main class="layout">
+  <div class="container" style="gap: 2rem">
+    <div
+      class="roomListRoom"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        gap: 20px;
+        width: 500px;
+      "
+    >
+      <div class="roomListRoom__header">
+        <!-- <div class="avatar avatar--small">
+            <img src="{% static 'images/DRC.png' %}" />
+          </div> -->
+        <div>
+          <span style="font-size: 19px; color: whitesmoke; font-weight: 1000">
+            Escolha o ano de visualização
+          </span>
+
+          {%include 'base/timeline.html'%}
+
+          <!-- <div class="roomListRoom__actions">
+              <span
+                >As doenças respiratórias crônicas são um grupo de condições que
+                afetam as vias respiratórias e os pulmões, caracterizadas por
+                sintomas persistentes e progressivos.
+              </span>
+            </div> -->
+        </div>
+      </div>
+      <div class="roomListRoom__content"></div>
+      <div class="roomListRoom__meta"></div>
+    </div>
+
+    <div>
+      <div class="roomListRoom" style="margin-bottom:10px;">
+        <div class="roomListRoom__header">
+          <div class="avatar avatar--small">
+            <img src="{% static 'images/DAC.png' %}" />
+          </div>
+          <div>
+            <span style="font-size: 22px; color: whitesmoke"
+              >Doenças do Aparelho Circulatório (DAC)</span
+            >
+
+            <div class="roomListRoom__actions">
+              <span
+                >Grupo de condições que acometem o coração e os vasos sanguíneos. São exemplos as doenças arterial coronariana, cerebrovascular e arterial periférica, além do acometimento de válvulas cardíacas e as cardiopatias congênitas.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="roomListRoom__content"></div>
+        <div class="roomListRoom__meta"></div>
+      </div>
+
+      <div class="roomListRoom" style="height:40rem;">
+        <div class="roomListRoom__header">
+          <!-- <div class="avatar avatar--small">
+            <img src="{% static 'images/DRC.png' %}" />
+          </div> -->
+          <div>
+            <span style="font-size: 22px; color: whitesmoke"
+              >Gráficos</span
+            >
+
+            <div class="roomListRoom__actions">
+              <span
+                >O gráfico à esquerda indica blablablablablablablabla e o da direita é mimimimimimimimimimimimimimiimim e é isso placeholder placeholder placeholder placeholder placeholder.
+              </span>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div style="max-width: 110rem;width: 100%;margin: auto;display: flex;justify-content: space-between;align-items: flex-start; gap:2rem;margin-top:4rem">
+            <div><img src="{% static 'images/grafico.png' %}" /></div>
+            <div><img src="{% static 'images/grafico.png' %}" /></div>
+          </div>
+
+        <!-- <div class="roomListRoom__content"></div>
+        <div class="roomListRoom__meta"></div> -->
+      </div>
+
+
+    </div>
+  </div>
+</main>
+
+{%endblock%}

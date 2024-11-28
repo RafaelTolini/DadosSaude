@@ -19,13 +19,7 @@
       </div>
       <div class="col-4"></div>
       <div class="col-2">
-        {% if user.is_authenticated %} Hello,
-        <a href="{% url 'user_profile' user.id%}">{{user.username}}</a>
-        <img src="{% static 'images/avatar.jpg'%}" alt="avatar" width="30" />
-        <a href="{% url 'logout'%}">Logout</a>
-        {% else %}
-        <a href="{% url 'login'%}" class="nav-link">Login</a>
-        {% endif %}
+        
       </div>
     </div>
 

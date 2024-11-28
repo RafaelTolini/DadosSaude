@@ -1,7 +1,7 @@
 {% extends 'main.html' %} {% block content %}
 <main class="layout layout--3">
   <div class="container">
-    {% include 'base/components/topics.html' %}
+    <div></div>
     <div class="roomList">
       <div class="mobile-menu">
         <form class="header__search">
@@ -32,10 +32,10 @@
       </div>
       <div class="roomList__header">
         <div>
-          <h2>Study Room</h2>
-          <p>{{rooms.count}} Rooms available</p>
+          <h2>Escolha o grupo de doenças crônicas</h2>
+          <!-- <p>{{rooms.count}} Rooms available</p> -->
         </div>
-        <a class="btn btn--main" href="{%url 'create_room'%}">
+        <!-- <a class="btn btn--main" href="{%url 'create_room'%}">
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -49,11 +49,11 @@
             ></path>
           </svg>
           Create Room
-        </a>
+        </a> -->
       </div>
       {% include 'base/components/rooms.html' %}
     </div>
-    {% include 'base/components/messages.html' %}
+    <div></div>
   </div>
 </main>
 {% endblock content %}
