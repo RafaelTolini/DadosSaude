@@ -1,52 +1,77 @@
-# study_buddy
+<div align="center">
+<img width="30%" src="https://user-images.githubusercontent.com/72341453/134747028-7e2d90cc-a92f-4f66-815e-54a0d50cca54.PNG">
 
-## create project
+# StudyBuddy
+</div>
 
-`django-admin startproject study_buddy`
+### Cloning the repository
 
-## virtualenv
+--> Clone the repository using the command below :
+```bash
+git clone https://github.com/divanov11/StudyBud.git
 
-### create virtual env
+```
 
-`virtualenv -p python3 [env_alias]`
+--> Move into the directory where we have the project files : 
+```bash
+cd StudyBud
 
-### active virtual env
+```
 
-- win: `[envname]\Scripts\activate` or `source ./[envname]/Scripts/activate`
-- mac: `source [envname]/bin/activate`
+--> Create a virtual environment :
+```bash
+# Let's install virtualenv first
+pip install virtualenv
 
-### freeze labs
+# Then we create our virtual environment
+virtualenv envname
 
-`pip freeze > requirements.txt`
+```
 
-### install labs
+--> Activate the virtual environment :
+```bash
+envname\scripts\activate
 
-`pip install -r requirements.txt`
+```
 
-## run project
+--> Install the requirements :
+```bash
+pip install -r requirements.txt
 
-`python manage.py runserver`
+```
 
-## templates
+#
 
-### include
+### Running the App
 
-`{% include 'navbar.html' %}`
+--> To run the App, we use :
+```bash
+python manage.py runserver
 
-### extends
+```
 
-- parent.html: `{% block [block_alias] %} {% endblock %}`
-- children: `{% extends 'parent.html' %} {% block [block_alias] %} ... {% endblock %}`
+> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
 
-## 返回上一步
+#
 
-- `<a href="{{request.META.HTTP_REFERER }}" >Back</a>`
-- `return redirect(request.META.HTTP_REFERER)`
+### App Preview :
 
-## 列表的长度
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Feed Home
+</p>
+<img src="https://user-images.githubusercontent.com/72341453/134747262-0a92233d-8010-40f8-84c5-8d94895aac44.PNG">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Room Conversation Preview
+</p>
+<img src="https://user-images.githubusercontent.com/72341453/134747155-3ca5b55f-b064-4741-aeae-abe90bddf41e.PNG">  
+</td>
+</table>
 
-`{{ some_list|length }}`
-
-## 跳转页面带参数
-
-`redirect('{}?flag=True'.format(reverse('new_view'))`
