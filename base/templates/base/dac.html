@@ -24,7 +24,7 @@
             Escolha o ano de visualização
           </span>
 
-          {%include 'base/timeline.html'%}
+          {%include 'base/timelineDAC.html'%}
 
           <!-- <div class="roomListRoom__actions">
               <span
@@ -82,8 +82,8 @@
         </div>
 
         <div style="max-width: 110rem;width: 100%;margin: auto;display: flex;justify-content: space-between;align-items: flex-start; gap:2rem;margin-top:4rem">
-            <div><img src="{% static 'images/grafico.png' %}" /></div>
-            <div><img src="{% static 'images/grafico.png' %}" /></div>
+            <div><img src="{% static 'images/DAC/grafDAC-1.png' %}" /></div>
+            <div><img src="{% static 'images/DAC/grafDAC-2.png' %}" /></div>
           </div>
 
         <!-- <div class="roomListRoom__content"></div>
@@ -170,14 +170,13 @@
     setTimeout(() => {
       if(year == 1)
         timelineImage.src = `{%static 'images/DAC/DAC-1.png'%}`; // Change image source
-      if(year == 2)
+      else if(year == 2)
         timelineImage.src = `{%static 'images/DAC/DAC-2.png'%}`; // Change image source
-      if(year == 3)
+      else if(year == 3)
         timelineImage.src = `{%static 'images/DAC/DAC-3.png'%}`; // Change image source
-      if(year == 4)
+      else if(year == 4)
         timelineImage.src = `{%static 'images/DAC/DAC-4.png'%}`; // Change image source
-      else
-        timelineImage.src = `{%static 'images/DAC/DAC-5.png'%}`; // Change image source
+
       timelineImage.style.opacity = 1; // Fade in
     }, 300); // Match the CSS transition duration
   }
