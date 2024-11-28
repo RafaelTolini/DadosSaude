@@ -56,8 +56,8 @@
     /* Image container */
     .image-container {
       margin-top: 30px;
-      width: 300px;
-      height: 300px;
+      width: 420px;
+      height: 420px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,16 +78,19 @@
   <div class="timeline">
     <div class="timeline-line"></div>
     <!-- Markers -->
-    <div class="timeline-marker" style="left: 0%;" data-year="1940">
-      <span>1940</span>
-    </div>
-    <div class="timeline-marker" style="left: 33%;" data-year="2000">
+    <div class="timeline-marker" style="left: 0%;" data-year="1">
       <span>2000</span>
     </div>
-    <div class="timeline-marker" style="left: 66%;" data-year="2010">
+    <div class="timeline-marker" style="left: 25%;" data-year="2">
+      <span>2005</span>
+    </div>
+    <div class="timeline-marker" style="left: 50%;" data-year="3">
       <span>2010</span>
     </div>
-    <div class="timeline-marker" style="left: 100%;" data-year="2020">
+    <div class="timeline-marker" style="left: 75%;" data-year="4">
+      <span>2015</span>
+    </div>
+    <div class="timeline-marker" style="left: 100%;" data-year="5">
       <span>2020</span>
     </div>
     <!-- Draggable box -->
@@ -98,76 +101,6 @@
     <img id="timeline-image" src="{%static 'images/brasil.png'%}" alt="Timeline Image">
   </div>
 
-  <script>
-    const draggable = document.querySelector('.draggable');
-    const timeline = document.querySelector('.timeline');
-    const timelineMarkers = document.querySelectorAll('.timeline-marker');
-    const timelineImage = document.getElementById('timeline-image');
-
-    let isDragging = false;
-
-    draggable.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      document.body.style.userSelect = 'none'; // Disable text selection
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        document.body.style.userSelect = ''; // Re-enable text selection
-        snapToMarker(); // Snap to the closest marker
-      }
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        const timelineRect = timeline.getBoundingClientRect();
-        let newLeft = e.clientX - timelineRect.left;
-
-        // Constrain the draggable box within the timeline
-        newLeft = Math.max(0, Math.min(newLeft, timelineRect.width));
-        draggable.style.left = `${newLeft}px`;
-      }
-    });
-
-    // Snap the draggable box to the closest marker and update the image
-    function snapToMarker() {
-      const draggableRect = draggable.getBoundingClientRect();
-      const timelineRect = timeline.getBoundingClientRect();
-      const draggableCenter = draggableRect.left + draggableRect.width / 2;
-
-      let closestMarker = null;
-      let closestDistance = Infinity;
-
-      timelineMarkers.forEach((marker) => {
-        const markerRect = marker.getBoundingClientRect();
-        const markerCenter = markerRect.left + markerRect.width / 2;
-
-        const distance = Math.abs(markerCenter - draggableCenter);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestMarker = marker;
-        }
-      });
-
-      if (closestMarker) {
-        const markerLeft = closestMarker.offsetLeft;
-        draggable.style.left = `${markerLeft}px`;
-
-        // Update the image
-        const year = closestMarker.getAttribute('data-year');
-        updateImage(year);
-      }
-    }
-
-    // Update the image
-    function updateImage(year) {
-      timelineImage.style.opacity = 0; // Fade out
-      setTimeout(() => {
-        timelineImage.src = `{%static 'images/brasil.png'%}`; // Change image source
-        timelineImage.style.opacity = 1; // Fade in
-      }, 300); // Match the CSS transition duration
-    }
-  </script>
+  
 </body>
 </html>

@@ -73,7 +73,7 @@
 
             <div class="roomListRoom__actions">
               <span
-                >O gráfico à esquerda indica blablablablablablablabla e o da direita é mimimimimimimimimimimimimimiimim e é isso placeholder placeholder placeholder placeholder placeholder.
+                >
               </span>
             </div>
           </div>
@@ -95,4 +95,91 @@
   </div>
 </main>
 
+
+
+<script>
+  const draggable = document.querySelector('.draggable');
+  const timeline = document.querySelector('.timeline');
+  const timelineMarkers = document.querySelectorAll('.timeline-marker');
+  const timelineImage = document.getElementById('timeline-image');
+
+  let isDragging = false;
+
+  window.addEventListener('load', () => {
+    timelineImage.src = `{% static 'images/DAC/DAC-1.png' %}`; // Change image source
+  });
+
+  draggable.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    document.body.style.userSelect = 'none'; // Disable text selection
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      document.body.style.userSelect = ''; // Re-enable text selection
+      snapToMarker(); // Snap to the closest marker
+    }
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const timelineRect = timeline.getBoundingClientRect();
+      let newLeft = e.clientX - timelineRect.left;
+
+      // Constrain the draggable box within the timeline
+      newLeft = Math.max(0, Math.min(newLeft, timelineRect.width));
+      draggable.style.left = `${newLeft}px`;
+    }
+  });
+
+  // Snap the draggable box to the closest marker and update the image
+  function snapToMarker() {
+    const draggableRect = draggable.getBoundingClientRect();
+    const timelineRect = timeline.getBoundingClientRect();
+    const draggableCenter = draggableRect.left + draggableRect.width / 2;
+
+    let closestMarker = null;
+    let closestDistance = Infinity;
+
+    timelineMarkers.forEach((marker) => {
+      const markerRect = marker.getBoundingClientRect();
+      const markerCenter = markerRect.left + markerRect.width / 2;
+
+      const distance = Math.abs(markerCenter - draggableCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestMarker = marker;
+      }
+    });
+
+    if (closestMarker) {
+      const markerLeft = closestMarker.offsetLeft;
+      draggable.style.left = `${markerLeft}px`;
+
+      // Update the image
+      const year = closestMarker.getAttribute('data-year');
+      const yearNumber = parseInt(year, 10);
+      updateImage(yearNumber);
+    }
+  }
+
+  // Update the image
+  function updateImage(year) {
+    timelineImage.style.opacity = 0; // Fade out
+    setTimeout(() => {
+      if(year == 1)
+        timelineImage.src = `{%static 'images/DAC/DAC-1.png'%}`; // Change image source
+      if(year == 2)
+        timelineImage.src = `{%static 'images/DAC/DAC-2.png'%}`; // Change image source
+      if(year == 3)
+        timelineImage.src = `{%static 'images/DAC/DAC-3.png'%}`; // Change image source
+      if(year == 4)
+        timelineImage.src = `{%static 'images/DAC/DAC-4.png'%}`; // Change image source
+      else
+        timelineImage.src = `{%static 'images/DAC/DAC-5.png'%}`; // Change image source
+      timelineImage.style.opacity = 1; // Fade in
+    }, 300); // Match the CSS transition duration
+  }
+</script>
 {%endblock%}
