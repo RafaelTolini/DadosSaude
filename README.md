@@ -56,3 +56,24 @@ python manage.py runserver
 ```
 
 O acesso ao site estará disponível em seu navegador na porta padrão: http://127.0.0.1:8000/.
+
+## Preview do Site
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Página Inicial
+</p>
+<img src="https://github.com/user-attachments/assets/b19750ee-4921-47cf-aa4c-fe6542fe78af">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Página de dados
+</p>
+<img src="https://github.com/user-attachments/assets/682da93c-23bd-4b3b-bf9e-42bb43fbc323">  
+</td>
+</table>
