@@ -12,7 +12,7 @@ O projeto foi feito em Django usando também partes do template de layout fornec
 
 ### Criar uma venv
 
-Clone o repositório ou extraia o zip baixado e abra a pasta do projeto na sua IDE. En seguida abra o terminal e navegue até a pasta correta.
+Clone o repositório ou extraia o zip baixado e abra a pasta do projeto na sua IDE. Em seguida abra o terminal e navegue até a pasta correta.
 
 Crie um ambiente virtual Python (venv) usando o comando:  
   
